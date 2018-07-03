@@ -1,5 +1,4 @@
 from jira import JIRA
-from pprint import pprint
 
 j_user = "admin"
 j_pwd = "password"
