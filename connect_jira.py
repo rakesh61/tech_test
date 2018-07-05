@@ -16,7 +16,6 @@ def project_lists():
         pprint(project.raw)
         return project.raw
 
-
 def project_issues():
     # To list all the issue in particular project and their attributes
     # all_issues = {}
@@ -24,18 +23,6 @@ def project_issues():
         issue = connect.issue(str(each_issue))
         pprint(issue.raw)
         return issue.raw
-        # all_issues[str(each_issue)] = {}
-        # all_issues[str(each_issue)]["comments"] = [{each_comment.author.displayName: each_comment.body}
-        #                                            for each_comment in issue.fields.comment.comments]
-        # all_issues[str(each_issue)]["description"] = issue.fields.description
-        # all_issues[str(each_issue)]["summary"] = issue.fields.summary
-        # all_issues[str(each_issue)]["created"] = issue.fields.created
-        # all_issues[str(each_issue)]["reporter"] = issue.fields.reporter.displayName
-        # all_issues[str(each_issue)]["assignee"] = issue.fields.assignee.displayName
-        # all_issues[str(each_issue)]["votes"] = issue.fields.votes.votes
-        # all_issues[str(each_issue)]["progress"] = issue.fields.progress.progress
-        # all_issues[str(each_issue)]["status"] = issue.fields.status.name
-
 
 def create_issues():
     # here to create a issue on particular project
@@ -53,19 +40,18 @@ def add_comment(issue_id, comment_message):
     comment_info = connect.add_comment(issue_id, comment_message)
     print(comment_info)
 
-
 def add_vote(issue_id):
     # To add vote to an issue
     vote_info = connect.add_vote(issue_id)
     print(vote_info)
 
-
+    
 def assign_issue(issue_id, assignee_name):
     # Assign an issue to user, Here it will return TRUE if assigned successfully
     user = connect.assign_issue(issue_id, assignee_name)
     print(user)
 
-
+    
 def comment_lists(issue_id):
     # Here it will list all comments on particular issue
     list_comments = connect.comments(issue_id)
@@ -78,6 +64,7 @@ def remove_user(user):
     user_del = connect.delete_user(user)
     print(user_del)
 
+    
 def issue_details(issueid):
     issue = connect.issue(issueid)
     print(issue.raw)
